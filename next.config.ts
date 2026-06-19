@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  ...(isGitHubPages ? { basePath: "/asian-trip-2027" } : {}),
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

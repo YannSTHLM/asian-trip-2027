@@ -21,9 +21,8 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npm run build
-      - uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
+        env:
+          GITHUB_PAGES: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
